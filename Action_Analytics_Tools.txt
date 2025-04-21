@@ -1,0 +1,50 @@
+Hootsuite: Hootsuite is an easy-to-use online platform that enables you to manage your social media
+presence across the most popular social networks. Hootsuite offers different plans depending on your
+business needs and budget: free, pro, or enterprise. In this tutorial, we will employ the free version,
+which supports up to five social media profiles and has limited analytics information.
+
+? SocialMediaMineR: SocialMediaMineR is a social media analytics tool that takes one or multiple
+URLs and returns the information about the popularity and reach of the URL(s) on social media,
+including the number of shares, likes, tweets, pins, and hits on Facebook, Twitter, Pinterest,
+StumbleUpon, LinkedIn, and Reddit.
+
+? Lithium: Lithium (http://www.lithium.com/) is social media management tool that provides a
+variety of products and services, including social media analytics, marketing, crowd-sourcing, and
+social media marketing.
+
+? Google Analytics: Google Analytics (http://www.google.com/analytics/) is an analytical tool offered
+by Google to track and analyze website traffic. It can also be used for blogs and wiki analytics.
+
+? Facebook Insights: Facebook Insights helps Facebook page owners understand and analyze trends
+within user growth and demographics.
+
+? Klout: Klout measures your influence across a range of social media channels based on how many
+people interact with your posts. Your Klout score measures your influence on a scale from one to one
+hundred.
+? Topsy: Topsy (http://topsy.com/) is similar to Icerocket and Social Mention, with its main focus
+around social media, especially multimedia sites and blogs.
+
+? Tweetreach: This tool helps you measure the number of impressions and reach of hashtags. The tool
+can be accessed here: https://tweetreach.com
+
+? Kred: Kred helps you measure the influence of a Twitter account:www.kred.com
+
+? Hashtagify: This tool measures the influence of hashtags: http://hashtagify.me
+
+? Twtrland: Twtrland is a social intelligence research tool (http://twtrland.com/) for analyzing and
+visualising your social footprints.
+
+? Tweetstats: using your Twitter username, Tweetstats graphs Twitter stats including tweets per hour,
+tweets per month, tweet timelines, and reply statistics (http://www.tweetstats.com).
+
+? Brand24: Brand24 is one of the most popular social media listening tools. We receive
+comprehensive reports on all public mentions of our company on the Internet. Correct use of the
+offered opportunities allows you to improve your company's image online, increase customer trust
+and respond to any discussions regarding specific phrases or hashtags. AI features and innovative
+solutions that save time for digital marketers and PR managers.
+
+? Talkwalker is a social media analytics and listening platform that provides insights into brand
+performance, consumer behavior, and market trends. It uses artificial intelligence (AI) and machine
+learning to analyze social media, news outlets, blogs, and other online platforms. Marketers, brands,
+and businesses use Talkwalker to monitor brand mentions, track competitors, measure the
+effectiveness of campaigns, and analyze public sentiment.
