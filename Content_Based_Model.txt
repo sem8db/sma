@@ -25,3 +25,84 @@ df = kagglehub.load_dataset(
 print("First 5 records:", df.head())
 
 --------------------------------------------------------
+# Install required libraries (uncomment if not installed)
+# !pip install pandas matplotlib textblob wordcloud nltk
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from textblob import TextBlob
+import re
+from collections import Counter
+from wordcloud import WordCloud
+
+# Load the dataset (Replace 'amazon.csv' with your actual file path)
+df = pd.read_csv("amazon.csv")
+
+# Display first few rows
+print(df.head())
+
+# Function to get sentiment
+def get_sentiment(text):
+    analysis = TextBlob(str(text))
+    polarity = analysis.sentiment.polarity
+    if polarity > 0:
+        return 'positive'
+    elif polarity < 0:
+        return 'negative'
+    else:
+        return 'neutral'
+
+# Apply sentiment analysis
+df['sentiment'] = df['review_content'].astype(str).apply(get_sentiment)
+
+# Count sentiments
+sentiment_counts = df['sentiment'].value_counts()
+
+# Plot sentiment distribution
+plt.figure(figsize=(8, 5))
+plt.bar(sentiment_counts.index, sentiment_counts.values, color=['green', 'red', 'gray'])
+plt.xlabel("Sentiment")
+plt.ylabel("Count")
+plt.title("Sentiment Analysis Distribution")
+plt.show()
+
+# Function to preprocess text
+def preprocess_text(text):
+    text = re.sub(r'\W+', ' ', str(text).lower())  # Remove special characters and lowercase
+    return text
+
+# Clean review text
+df['cleaned_review'] = df['review_content'].astype(str).apply(preprocess_text)
+
+# Get most common words
+all_words = ' '.join(df['cleaned_review']).split()
+word_counts = Counter(all_words)
+common_words = word_counts.most_common(10)
+
+# Plot top 10 common words
+words, counts = zip(*common_words)
+plt.figure(figsize=(8, 5))
+plt.bar(words, counts, color='blue')
+plt.xlabel("Words")
+plt.ylabel("Frequency")
+plt.title("Top 10 Most Common Words")
+plt.xticks(rotation=45)
+plt.show()
+
+# Generate word clouds for each sentiment
+sentiments = ['positive', 'negative', 'neutral']
+wordclouds = {}
+
+for sentiment in sentiments:
+    text = ' '.join(df[df['sentiment'] == sentiment]['cleaned_review'])
+    wordclouds[sentiment] = WordCloud(width=500, height=300, background_color="white").generate(text)
+
+# Plot word clouds
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+for i, sentiment in enumerate(sentiments):
+    axes[i].imshow(wordclouds[sentiment], interpolation="bilinear")
+    axes[i].set_title(f"{sentiment.capitalize()} Words")
+    axes[i].axis("off")
+
+plt.tight_layout()
+plt.show()
