@@ -1,48 +1,71 @@
-To develop a structure based SMA Model for any business using python.
-
-
 import pandas as pd
 import random
 import networkx as nx
 import matplotlib.pyplot as plt
+
 # Function to generate random social network data
 def generate_social_network_data(n):
-users = ["Aarav", "Bhavya", "Chirag", "Dev", "Esha", "Farhan", "Gauri", "Harsh", "Ishita", "Jatin",
-"Kunal", "Lavanya", "Meera", "Nikhil", "Ojas", "Priya", "Quasar", "Rohan", "Sneha", "Tanmay",
-"Urvashi", "Varun", "Waseem"]
-relations = ["Friend", "Connection", "Endorsement", "Follower"]
-data = {
-"User_A": [],
-"User_B": [],
-"Relation": []
-}
-for _ in range(n):
-user_a, user_b = random.sample(users, 2)
-relation = random.choice(relations)
-data["User_A"].append(user_a)
-data["User_B"].append(user_b)
-data["Relation"].append(relation)
-return pd.DataFrame(data)
+    users = ["Aarav", "Bhavya", "Chirag", "Dev", "Esha", "Farhan", "Gauri", "Harsh", "Ishita", "Jatin",
+             "Kunal", "Lavanya", "Meera", "Nikhil", "Ojas", "Priya", "Quasar", "Rohan", "Sneha", "Tanmay",
+             "Urvashi", "Varun", "Waseem"]
+    relations = ["Friend", "Connection", "Endorsement", "Follower"]
+    
+    data = {
+        "User_A": [],
+        "User_B": [],
+        "Relation": []
+    }
+
+    for _ in range(n):
+        user_a, user_b = random.sample(users, 2)
+        relation = random.choice(relations)
+        data["User_A"].append(user_a)
+        data["User_B"].append(user_b)
+        data["Relation"].append(relation)
+    
+    return pd.DataFrame(data)
+
+# Generate synthetic data
 df = generate_social_network_data(50)
+
+# Create a network graph
 G = nx.Graph()
+
+# Add edges with relation labels
 for index, row in df.iterrows():
-G.add_edge(row['User_A'], row['User_B'], relation=row['Relation'])
+    G.add_edge(row['User_A'], row['User_B'], relation=row['Relation'])
+
+# Plot the graph
 plt.figure(figsize=(12, 8))
-pos = nx.spring_layout(G) # Layout for positioning
+pos = nx.spring_layout(G)  # Layout for positioning
+
+# Draw nodes and edges
+nx.draw(G, pos, with_labels=True, node_color='lightblue', edge_color='gray',
+        node_size=2000, font_size=10, font_weight='bold')
+
+# Draw edge labels
 edges = G.edges(data=True)
-nx.draw(G, pos, with_labels=True, node_color='lightblue', edge_color='gray', node_size=2000,
-font_size=10, font_weight='bold')
 edge_labels = {(u, v): d['relation'] for u, v, d in edges}
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
+
 plt.title("Social Media Network Graph with Relationships")
 plt.show()
-print("\nNode Degrees:\n", pd.DataFrame(list(nx.degree(G)), columns=["Node",
-"Degree"]).to_string(index=False))
-print("\nDegree Centrality:\n", pd.DataFrame([(node, round(value, 2)) for node, value in
-nx.degree_centrality(G).items()], columns=["Node", "Degree Centrality"]).to_string(index=False))
-print("\nEigenvector Centrality:\n", pd.DataFrame([(node, round(value, 2)) for node, value in
-nx.eigenvector_centrality(G).items()], columns=["Node", "Eigenvector
-Centrality"]).to_string(index=False))
-print("\nBetweenness Centrality:\n", pd.DataFrame([(node, round(value, 2)) for node, value in
-nx.betweenness_centrality(G).items()], columns=["Node", "Betweenness
-Centrality"]).to_string(index=False))
+
+# Analytics: Node degree
+print("\nNode Degrees:\n", pd.DataFrame(
+    list(nx.degree(G)), columns=["Node", "Degree"]).to_string(index=False))
+
+# Degree Centrality
+print("\nDegree Centrality:\n", pd.DataFrame(
+    [(node, round(value, 2)) for node, value in nx.degree_centrality(G).items()],
+    columns=["Node", "Degree Centrality"]).to_string(index=False))
+
+# Eigenvector Centrality
+print("\nEigenvector Centrality:\n", pd.DataFrame(
+    [(node, round(value, 2)) for node, value in nx.eigenvector_centrality(G).items()],
+    columns=["Node", "Eigenvector Centrality"]).to_string(index=False))
+
+# Betweenness Centrality
+print("\nBetweenness Centrality:\n", pd.DataFrame(
+    [(node, round(value, 2)) for node, value in nx.betweenness_centrality(G).items()],
+    columns=["Node", "Betweenness Centrality"]).to_string(index=False))
