@@ -1,0 +1,89 @@
+
+Social Media Analytics (General)
+
+
+Hootsuite
+
+
+Sprout Social
+
+
+Buffer
+
+
+Socialbakers (Emplifi)
+
+
+HubSpot
+
+
+Google Analytics
+
+
+
+
+------------------------------------
+
+Social Media Network Analytics
+
+Gephi
+NodeXL
+NetworkX
+Pajek
+Cytoscape
+Flocker
+
+
+------------------------------------
+
+Social Media Text Analytics
+
+Discovertext
+Lexalytics
+TextBlob
+RapidMiner
+
+------------------------------------
+
+Social Media Action Analytics
+
+Hootsuite
+HAshtagify
+Topsy
+Tweetreach
+Google analytics
+Klout
+Tweetreach
+
+------------------------------------
+
+Social Media Hyperlink Analytics
+
+Webometric Analyst
+VOSON
+Open Site Explorer
+BAcklink Watch
+BuzzSumo
+Google Campaign URL Builder
+Diagnosis
+
+------------------------------------
+
+Social Media Location Analytics
+
+TweetMap
+Carto
+GeoPandas
+ArcGIS (Social Media Feeds)
+
+------------------------------------
+
+Social Media Search Engine Analytics
+
+Google Trends
+Google hot Trends
+Canopy
+IceRocket
+
+-------------------------------------
+
