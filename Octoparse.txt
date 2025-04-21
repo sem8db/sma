@@ -1,0 +1,11 @@
+Octoparse
+
+Step 1: Open Octoparse App
+Step 2: In Octoparse Home Page , Go to new task and select Task Template.
+Step 3: Here we can find a list of task template to choose from. We have selected the YouTube Video List
+Scrapper
+Step 4: Enter links/keywords you want to search and scroll times, higher the number of scroll times more data will
+be collected, also it will take more time. Then Click on Start Button.
+Step 5: Select Standard Mode in the Run on your device option
+Step 6: Wait for a few seconds to complete data extraction. Then we can view our data.
+Step 7: Task Stopped
