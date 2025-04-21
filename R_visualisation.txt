@@ -1,0 +1,87 @@
+# Load required libraries
+library(ggplot2)
+library(dplyr)
+
+#BAr plot
+# Replace:
+# df ? your dataset (e.g., mydata)
+# category_col ? your categorical/text column (e.g., Gender, Region)
+
+ggplot(df, aes(x = category_col)) +
+  geom_bar(fill = "steelblue") +
+  labs(title = "Bar Plot of category_col", x = "Category", y = "Count") +
+  theme_minimal()
+
+
+------------------------------------------------
+
+
+#Scatter Plot (Both columns numeric)
+# Replace:
+# df ? your dataset
+# x_col ? numeric column (e.g., Age)
+# y_col ? numeric column (e.g., Income)
+
+ggplot(df, aes(x = x_col, y = y_col)) +
+  geom_point(color = "darkred", size = 3, alpha = 0.7) +
+  labs(title = "Scatter Plot", x = "X Value", y = "Y Value") +
+  theme_light()
+
+---------------------------------------------------
+
+#Scatter Plot (One column is categorical (usually on X-axis))
+# Replace:
+# x_col ? text/categorical column (e.g., Department)
+# y_col ? numeric column (e.g., Salary)
+
+ggplot(df, aes(x = factor(x_col), y = y_col)) +
+  geom_jitter(width = 0.2, color = "darkgreen", size = 3, alpha = 0.6) +
+  labs(title = "Scatter Plot (Categorical vs Numeric)", x = "Category", y = "Value") +
+  theme_bw()
+
+
+---------------------------------------------------
+
+#PIE CHART - VERSION 1
+? Only Categorical Column (e.g., Product, Gender, Region)
+# Replace:
+# df ? your dataset
+# category_col ? categorical/text column (e.g., Product_Type, Gender)
+
+df %>%
+  count(category_col) %>%  # count frequency of each category
+  ggplot(aes(x = "", y = n, fill = category_col)) +
+  geom_col(width = 1) +
+  coord_polar("y") +
+  labs(title = "Pie Chart of category_col", fill = "Category") +
+  theme_void()
+
+
+-------------------------------------------------------
+
+#PIE CHART - VERSION 2
+? One Categorical + One Numeric Column
+(e.g., Total Sales per Product)
+
+# Replace:
+# df ? your dataset
+# category_col ? categorical/text column (e.g., Product)
+# numeric_col ? numeric column (e.g., Sales, Amount)
+
+df %>%
+  group_by(category_col) %>%
+  summarise(total_value = sum(numeric_col, na.rm = TRUE)) %>%
+  ggplot(aes(x = "", y = total_value, fill = category_col)) +
+  geom_col(width = 1) +
+  coord_polar("y") +
+  labs(title = "Pie Chart of category_col by numeric_col", fill = "Category") +
+  theme_void()
+
+
+--------------------------------------------------------
+
+What to Replace:
+df ? your dataset (e.g., mydata)
+
+category_col ? your categorical column (e.g., Gender, State, Product_Type)
+
